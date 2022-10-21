@@ -62,12 +62,12 @@ app.post('/api/notes', (req, res) => {
         const parsedNotes = JSON.parse(data);
 
         // Add a new note
-        parsedNotes.push(newNote);
+        const notes = parsedNotes.push(newNote);
 
-        // Write updated notes back to the file
+        // Write updated notes back to the file---------check out writefile async
         fs.writeFile(
           './db/db.json',
-          JSON.stringify(parsedNotes, null, 4),
+          JSON.stringify(notes),
           (writeErr) =>
             writeErr
               ? console.error(writeErr)
