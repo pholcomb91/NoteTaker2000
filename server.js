@@ -44,7 +44,6 @@ app.post('/api/notes', (req, res) => {
   // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
 
-  // If all the required properties are present
   if (title && text) {
     // Variable for the object we will save
     const newNote = {
@@ -64,7 +63,7 @@ app.post('/api/notes', (req, res) => {
         // Add a new note
         const notes = parsedNotes.push(newNote);
 
-        // Write updated notes back to the file---------check out writefile async
+        // Write updated notes back to the file
         fs.writeFile(
           './db/db.json',
           JSON.stringify(notes),
